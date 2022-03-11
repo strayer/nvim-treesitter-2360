@@ -7,6 +7,10 @@ To reproduce:
 ```
 docker build -t nvim-treesitter-2360 .
 docker run --rm -it nvim-treesitter-2360
+# then in GDB shell
+run
+# to check the stacktrace after the segfault occured
+bt
 ```
 
 First bad commit in neovim (found with bisect):

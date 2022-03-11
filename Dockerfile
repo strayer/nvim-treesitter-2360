@@ -1,7 +1,7 @@
 FROM debian:bullseye
 
 RUN apt-get update && \
-  apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen git && \
+  apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen git gdb && \
   rm -rf /var/lib/apt/lists
 
 # good
@@ -26,4 +26,4 @@ RUN mkdir -p ~/.local/share/nvim/site/pack/plugins/start/ && \
 COPY example.vue /example.vue
 COPY init.vim /root/.config/nvim/
 
-CMD [ "nvim", "/example.vue" ]
+CMD [ "gdb", "--args", "nvim", "/example.vue" ]
